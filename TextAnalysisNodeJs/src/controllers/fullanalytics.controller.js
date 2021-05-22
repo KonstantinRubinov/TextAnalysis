@@ -15,7 +15,7 @@ exports.AnalyseFullText = async function (req, res) {
 			textForDebug = textForDebug + "byWords PostWords Limit: " + "limit is 0.";
 			textForBadRequest = textForBadRequest + "There is no words limit.";
 		}
-        if (!textForDebug.Equals("") || !textForBadRequest.Equals(""))
+        if (textForDebug!=="" || textForBadRequest!=="")
 		{
             console.error(textForDebug);
             return res.status(HttpStatus.StatusCodes.BAD_REQUEST).json({ message: textForBadRequest });

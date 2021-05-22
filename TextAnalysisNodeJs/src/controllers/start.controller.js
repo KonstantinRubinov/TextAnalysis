@@ -3,7 +3,7 @@ exports.GetHtml = async function (req, res) {
 }
 
 exports.GetCss = async function (req, res) {
-    res.sendFile('styles.3ff695c00d717f2d2a11.css', { root: "./src/html" } );
+    res.sendFile('styles.9930899bea67a6add847', { root: "./src/html" } );
 }
 
 exports.GetFavicon = async function (req, res) {
@@ -11,25 +11,25 @@ exports.GetFavicon = async function (req, res) {
 }
 
 exports.GetMain1 = async function (req, res) {
-    res.sendFile('main-es5.4621dc78558fece5e82a.js', { root: "./src/html" } );
+    res.sendFile('main-es5.4847984abfb991695fad.js', { root: "./src/html" } );
 }
 
 exports.GetMain2 = async function (req, res) {
-    res.sendFile('main-es2015.4621dc78558fece5e82a.js', { root: "./src/html" } );
+    res.sendFile('main-es2015.4847984abfb991695fad.js', { root: "./src/html" } );
 }
 
 exports.GetPolyfills1 = async function (req, res) {
-    res.sendFile('polyfills-es5.c569d966f6635032fedc.js', { root: "./src/html" } );
+    res.sendFile('polyfills-es5.3e72f985f8ecb2890235.js', { root: "./src/html" } );
 }
 
 exports.GetPolyfills2 = async function (req, res) {
-    res.sendFile('polyfills-es2015.0e30b7e93628c36a888a.js', { root: "./src/html" } );
+    res.sendFile('polyfills-es2015.a11e6660d0794b76ba27.js', { root: "./src/html" } );
 }
 
 exports.GetRuntime1 = async function (req, res) {
-    res.sendFile('runtime-es5.0dae8cbc97194c7caed4.js', { root: "./src/html" } );
+    res.sendFile('runtime-es5.d6c52737d4587c65265f.js', { root: "./src/html" } );
 }
 
 exports.GetRuntime2 = async function (req, res) {
-    res.sendFile('runtime-es2015.0dae8cbc97194c7caed4.js', { root: "./src/html" } );
+    res.sendFile('runtime-es2015.d6c52737d4587c65265f.js', { root: "./src/html" } );
 }
