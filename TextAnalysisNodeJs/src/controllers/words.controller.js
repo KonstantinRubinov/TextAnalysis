@@ -1,5 +1,6 @@
 const wordsService = require("../services/words.service");
 var HttpStatus = require('http-status-codes');
+var filePath = require('../../../Words/');
 
 exports.AddSimpleWords = async function (req, res) {
     try {

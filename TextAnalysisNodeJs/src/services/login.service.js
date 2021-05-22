@@ -22,7 +22,6 @@ function Authenticate(userNickName, userPassword){
             } else {
                 let jwtToken = jwt.sign({
                     userNickName: getUser.userNickName,
-                    userImdbPass: getUser.userImdbPass,
                     userID: getUser.userID
                 }, "longer-secret-is-better", {
                     expiresIn: "1h"
@@ -31,6 +30,7 @@ function Authenticate(userNickName, userPassword){
                     usertoken: jwtToken,
                     expiresIn: 3600,
                     userNickName: getUser.userNickName,
+                    userLevel: getUser.userLevel,
                     userPicture: "src/assets/images/users/" + getUser.userPicture
                 };
             }

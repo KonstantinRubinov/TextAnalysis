@@ -16,6 +16,8 @@ let userSchema = new Schema({
 	userPicture: { type: String },
 	userLevel: { type: Number, required: true },
 	//userImage: { type: String, required: true }
+	userRegistrationDate: { type: Date },
+	userLoginDate: { type: Date }
 }, {collection: 'users'}
 )
 
