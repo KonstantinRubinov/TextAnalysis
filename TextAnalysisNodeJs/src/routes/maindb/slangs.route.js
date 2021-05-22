@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const slangsController = require("../controllers/slangs.controller");
+const slangsController = require("../../controllers/maindb/slangs.controller");
 
 router.route("/slangs").get(slangsController.GetAllWords);
 router.route("/slangs").post(slangsController.PostWord);

@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const tempArchaismController = require("../controllers/temp_archaism.controller");
+const tempArchaismController = require("../../controllers/temporaldb/temp_archaism.controller");
 
 router.route("/temp_archaisms").get(tempArchaismController.GetAllWords);
 router.route("/temp_archaisms").post(tempArchaismController.PostWord);

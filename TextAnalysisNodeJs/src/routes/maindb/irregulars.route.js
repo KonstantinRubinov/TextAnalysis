@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const irregularsController = require("../controllers/irregulars.controller");
+const irregularsController = require("../../controllers/maindb/irregulars.controller");
 
 router.route("/irregulars").get(irregularsController.GetAllWords);
 router.route("/irregulars").post(irregularsController.PostWord);

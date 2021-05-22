@@ -1,3 +1,4 @@
+const usersAnalyticsService = require("../services/usersAnalytics.service");
 var HttpStatus = require('http-status-codes');
 
 exports.GetAllUserAnalitics = async function (req, res) {

@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const tempExpressionsController = require("../controllers/temp_expressions.controller");
+const tempExpressionsController = require("../../controllers/temporaldb/temp_expressions.controller");
 
 router.route("/temp_expressions").get(tempExpressionsController.GetAllWords);
 router.route("/temp_expressions").post(tempExpressionsController.PostWord);

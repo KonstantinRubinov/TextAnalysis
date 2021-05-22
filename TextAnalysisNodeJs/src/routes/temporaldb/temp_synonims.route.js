@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const tempSynonimsController = require("../controllers/temp_synonims.controller");
+const tempSynonimsController = require("../../controllers/temporaldb/temp_synonim.controller");
 
 router.route("/temp_synonims").get(tempSynonimsController.GetAllWords);
 router.route("/temp_synonims").post(tempSynonimsController.PostWord);

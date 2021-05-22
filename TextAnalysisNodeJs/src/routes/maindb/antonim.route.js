@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const antonimController = require("../controllers/antonim.controller");
+const antonimController = require("../../controllers/maindb/antonim.controller");
 
 router.route("/antonims").get(antonimController.GetAllWords);
 router.route("/antonims/:word").get(antonimController.GetWordsBy);

@@ -1,3 +1,4 @@
+const wordsService = require("../services/words.service");
 var HttpStatus = require('http-status-codes');
 
 exports.AddSimpleWords = async function (req, res) {

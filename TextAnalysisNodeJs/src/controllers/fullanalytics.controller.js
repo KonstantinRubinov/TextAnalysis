@@ -1,3 +1,4 @@
+const fullAnalyticsService = require("../services/fullAnalytics.service");
 var HttpStatus = require('http-status-codes');
 
 exports.AnalyseFullText = async function (req, res) {

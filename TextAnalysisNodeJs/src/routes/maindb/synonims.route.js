@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const synonimsController = require("../controllers/synonims.controller");
+const synonimsController = require("../../controllers/maindb/synonim.controller");
 
 router.route("/synonims").get(synonimsController.GetAllWords);
 router.route("/synonims/:word").get(synonimsController.GetWordsBy);

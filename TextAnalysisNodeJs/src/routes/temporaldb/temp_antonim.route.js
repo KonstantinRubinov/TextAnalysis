@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const tempAntonimController = require("../controllers/temp_antonim.controller");
+const tempAntonimController = require("../../controllers/temporaldb/temp_antonim.controller");
 
 router.route("/temp_antonims").get(tempAntonimController.GetAllWords);
 router.route("/temp_antonims/:connectionWord").post(tempAntonimController.PostWord);

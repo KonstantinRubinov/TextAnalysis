@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const expressionsController = require("../controllers/expressions.controller");
+const expressionsController = require("../../controllers/maindb/expressions.controller");
 
 router.route("/expressions").get(expressionsController.GetAllWords);
 router.route("/expressions").post(expressionsController.PostWord);
