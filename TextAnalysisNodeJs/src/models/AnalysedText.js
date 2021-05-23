@@ -12,4 +12,4 @@ let analysedTextSchema = new Schema({
 )
 
 analysedTextSchema.plugin(uniqueValidator, { message: 'Error, expected {PATH} to be unique.' });
-module.exports = mongoose.model('analysedText', analysedTextSchema)
+module.exports = mongoose.models.AnalysedText || mongoose.model('AnalysedText', analysedTextSchema);

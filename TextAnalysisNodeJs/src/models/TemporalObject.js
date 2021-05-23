@@ -12,4 +12,4 @@ let temporalObjectSchema = new Schema({
 )
 
 temporalObjectSchema.plugin(uniqueValidator, { message: 'Error, expected {PATH} to be unique.' });
-module.exports = mongoose.model('temporalObject', temporalObjectSchema)
+module.exports = mongoose.models.TemporalObject || mongoose.model('TemporalObject', temporalObjectSchema);

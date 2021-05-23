@@ -13,4 +13,4 @@ let temporalObjectForIrregularSchema = new Schema({
 )
 
 temporalObjectForIrregularSchema.plugin(uniqueValidator, { message: 'Error, expected {PATH} to be unique.' });
-module.exports = mongoose.model('temporalObjectForIrregular', temporalObjectForIrregularSchema)
+module.exports = mongoose.models.TemporalObjectForIrregular || mongoose.model('TemporalObjectForIrregular', temporalObjectForIrregularSchema);

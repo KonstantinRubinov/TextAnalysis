@@ -22,4 +22,4 @@ let userSchema = new Schema({
 )
 
 userSchema.plugin(uniqueValidator, { message: 'Error, expected {PATH} to be unique.' });
-module.exports = mongoose.model('User', userSchema)
+module.exports = mongoose.models.User || mongoose.model('User', userSchema);

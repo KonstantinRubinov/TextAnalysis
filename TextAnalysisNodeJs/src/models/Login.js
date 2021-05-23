@@ -11,4 +11,4 @@ let loginSchema = new Schema({
 )
 
 loginSchema.plugin(uniqueValidator, { message: 'Error, expected {PATH} to be unique.' });
-module.exports = mongoose.model('Login', loginSchema)
+module.exports = mongoose.models.Login || mongoose.model('Login', loginSchema);

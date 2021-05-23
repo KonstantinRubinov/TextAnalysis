@@ -1,5 +1,6 @@
 const bcrypt = require("bcrypt");
 const userSchema = require("../models/User");
+const userAnalitics = require("./userAnalitics.service");
 
 var fs = require('fs');
 
@@ -48,12 +49,42 @@ function GetOneUser(userID){
     }
 }
 
-function ReturnUserByNamePassword(userNickName, userPassword){
+function GetOneUserByName(userNickName){
     try {
-        var user = userSchema.findOne({ userNickName: userNickName, userPassword: userPassword });
+        var user = userSchema.findOne({ userNickName: userNickName });
         return user;
     } catch (error) {
         throw Error(error);
+    }
+}
+
+function GetOneUserByLogin(userNickName, userPassword){
+    let getUser;
+    try {
+        return userSchema.findOne({userNickName: userNickName}).then(user => {
+            if (!user || user === undefined) {
+                console.error("No User - userNickName not exist");
+                throw Error("No User - userNickName not exist")
+            }
+            else{
+                getUser = user;
+                return bcrypt.compare(userPassword, getUser.userPassword);
+            }
+        }).then(response => {
+            if (!getUser || getUser === undefined) {
+            } else if (response==false || response == undefined) {
+                console.error("No User - userNickName not exist");
+                throw Error("No User - userNickName not exist")
+            } else {
+                return getUser
+            }
+        }).catch(error => {
+            console.error("No User " + error.message);
+            throw Error("No User " + error.message)
+        });
+    } catch (error) {
+        console.error("No User " + error.message);
+        throw Error("No User " + error.message)
     }
 }
 
@@ -99,7 +130,8 @@ function AddUser(body){
             userGender: body.userGender,
             userBirthDate: body.userBirthDate,
             userPicture: pictureName,
-            userLevel: body.userLevel
+            userLevel: body.userLevel,
+            userRegistrationDate:Date.now()
         });
         
         return user.save().then((response) => {
@@ -122,7 +154,12 @@ function UpdateUser(body, userID){
 
 function DeleteUser(userID){
     try {
-        var user = userSchema.findOneAndRemove({userID: userID});
+        var user = userSchema.findOneAndRemove({userID: userID}).then((response) => {
+            userAnalitics.DeleteUserAnalitics(userID);
+            return response;
+        }).catch(error => {
+            throw Error(error);
+        });;
         return user.userNickName;
     } catch (error) {
         throw Error(error);
@@ -134,6 +171,7 @@ function DeleteUsers(){
         if (error) {
             throw Error(error);
         } else {
+            userAnalitics.DeleteUsersAnalitics();
             return data;
         }
     })
@@ -142,9 +180,10 @@ function DeleteUsers(){
 module.exports ={
     GetAllUsers:GetAllUsers,
     GetOneUser:GetOneUser,
-    ReturnUserByNamePassword:ReturnUserByNamePassword,
+    GetOneUserByLogin:GetOneUserByLogin,
     AddUser:AddUser,
     UpdateUser:UpdateUser,
     DeleteUser:DeleteUser,
-    DeleteUsers:DeleteUsers
+    DeleteUsers:DeleteUsers,
+    GetOneUserByName:GetOneUserByName
 };

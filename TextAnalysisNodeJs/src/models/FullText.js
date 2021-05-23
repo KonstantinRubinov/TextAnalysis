@@ -8,4 +8,4 @@ let fullTextSchema = new Schema({
 )
 
 fullTextSchema.plugin(uniqueValidator, { message: 'Error, expected {PATH} to be unique.' });
-module.exports = mongoose.model('fullText', fullTextSchema)
+module.exports = mongoose.models.FullText || mongoose.model('FullText', fullTextSchema);

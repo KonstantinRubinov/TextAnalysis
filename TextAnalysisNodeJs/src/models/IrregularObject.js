@@ -11,4 +11,4 @@ let irregularObjectSchema = new Schema({
 )
 
 irregularObjectSchema.plugin(uniqueValidator, { message: 'Error, expected {PATH} to be unique.' });
-module.exports = mongoose.model('irregularObject', irregularObjectSchema)
+module.exports = mongoose.models.IrregularObject || mongoose.model('IrregularObject', irregularObjectSchema);

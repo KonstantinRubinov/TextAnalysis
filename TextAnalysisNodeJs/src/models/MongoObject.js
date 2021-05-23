@@ -10,4 +10,4 @@ let mongoObjectSchema = new Schema({
 )
 
 mongoObjectSchema.plugin(uniqueValidator, { message: 'Error, expected {PATH} to be unique.' });
-module.exports = mongoose.model('mongoObject', mongoObjectSchema)
+module.exports = mongoose.models.MongoObject || mongoose.model('MongoObject', mongoObjectSchema);
